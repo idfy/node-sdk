@@ -1,11 +1,9 @@
 # IDFY PHP CLient
-NodeJS WEB SDK (async)
-
-Node module for integration with IDfy-API.
+NodeJS WEB SDK (async) - Node module for integration with IDfy-API.
 
 Util to request IDfy's Extraction and Verification Engine services.
 
-##Installation
+## Installation
 
 ```bash
 # 1. Ensure you have composer installed. Here is a link : https://getcomposer.org/download/
@@ -19,7 +17,7 @@ Util to request IDfy's Extraction and Verification Engine services.
 
 ```
 
-##Client-Initiation
+## Client-Initiation
 
 - Setup your API key in the dashboard - [plans.idfy.com](plans.idfy.com)
 
@@ -29,9 +27,9 @@ let client = new Client("77484e44-db92-4a64-9584-0cc1798cd44e");
 ```
 Please ensure the ***API_KEY*** is included as a string.
 
-###Usage
+### Usage
 
-#####POST request
+##### POST request
 - Making API call to make service request.(Refer various ***services*** (or) ***task_types*** here - https://api-docs.idfy.com/v2/#task-types).
     
 ```php
@@ -54,7 +52,7 @@ var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1"
 ```
 
 
-#####**GET response**
+##### **GET response**
 - Making API call, to receive response from the request made in the above step. ***request_id*** - generated in the previous step, will be an argument to get the response.
 ```php
 Syntax : 
