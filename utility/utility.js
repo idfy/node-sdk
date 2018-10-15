@@ -75,7 +75,7 @@ class Utility extends Tasks{
         }
         var any_task_data_fields = task_schema['any'];
         if (any_task_data_fields.length > 0){           //Checking presence of any task fields
-            all_task_data_fields.all_task_data_fields.concat(any_task_data_fields);
+            all_task_data_fields=all_task_data_fields.concat(any_task_data_fields);
             var any_fields_flag = false;
 
             for (var k in any_task_data_fields){
