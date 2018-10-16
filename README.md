@@ -1,4 +1,4 @@
-# IDFY PHP CLient
+# IDFY NodeJS CLient
 NodeJS WEB SDK (async) - Node module for integration with IDfy-API.
 
 Util to request IDfy's Extraction and Verification Engine services.
