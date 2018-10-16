@@ -115,15 +115,15 @@ class Utility extends Tasks{
        
        if (typeof(this.task_type) != 'string'){
             throw new BadRequestError("Invalid task_type format. Expected type is string, eg.: '<TASK_TYPE>'");
-            return;
+            
        }
        else if (this.task_type.length < 1){
            throw new BadRequestError("Empty task_type provided. Refer the doc for task_types - https://api-docs.idfy.com/v2/#task-types");
-           return;
+           
        }
        else if (this.DEFAULTS['tasks_config'][api_version]['available_tasks'].indexOf(this.task_type) < 0){
            throw new BadRequestError("Invalid task_type requested. Refer the doc for task_types - https://api-docs.idfy.com/v2/#task-types");
-           return;
+           
        }
        if (typeof(this.task_id) != 'string'){
         throw new BadRequestError("Invalid task_id format. Expected type is string, eg.: '<TASK_ID>'");

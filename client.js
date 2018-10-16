@@ -2,7 +2,6 @@
 const Tasks = require('./constants/tasks.js');
 const Url = require('./constants/url.js')
 const Utility = require('./utility/utility.js')
-// const request = require("request");
 const BadRequestError = require('./errors.js')
 class Client extends Tasks{
 
@@ -135,37 +134,3 @@ class Client extends Tasks{
    
     }
 }
-
-let c = new Client("77484e44-db92-4a64-9584-0cc1798cd44e");
-
-// var jj= c.post_request("pan_ocr","124",{ 'doc_url': 'https://s3-ap-southeast-1.amazonaws.com/addressify-demo/eve+api+images/Indonesia+NID/ktp.jpg' },"2");
-
-// c.post_request("pan_ocr","124",{ 'doc_url': 'https://s3-ap-southeast-1.amazonaws.com/addressify-demo/eve+api+images/Indonesia+NID/ktp.jpg' },"2",function(result){
-//     console.log("44");
-//     console.log(result);
-// })
-
-// c.get_response("")
-// console.log(jj)
-// c.get_response("cffea36f-c644-4644-9491-f143c5e48fd1",null,null,function(err,result){
-//     console.log("555");
-//     console.log(result);
-// });
-// console.log(j);
-
-function logStuff (userData) {
-    if ( typeof userData === "string")
-    {
-        console.log(userData);
-    }
-    else if ( typeof userData === "object")
-    {
-        for (var item in userData) {
-            console.log(item + ": " + userData[item]);
-        }
-
-    }
-
-}
-console.log(c.post_request("pan_ocr","124",{ 'doc_url': 'https://s3-ap-southeast-1.amazonaws.com/addressify-demo/eve+api+images/Indonesia+NID/ktp.jpg' },"2",logStuff))
-// console.log(c.DEFAULTS);
