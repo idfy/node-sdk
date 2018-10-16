@@ -5,15 +5,17 @@ const Utility = require('./utility/utility.js')
 const BadRequestError = require('./errors.js')
 class Client extends Tasks{
 
-    constructor(autho ,options=null){
+    constructor(autho, account_id, options=null){
         super();
         this.auth = autho;
+        this.account_id = account_id;
         this.DEFAULTS = {};
         this.DEFAULTS['base_url_v2'] = Url.BASE_URL_V2;
         this.DEFAULTS['base_url_v3'] = Url.BASE_URL_V3;
         this.DEFAULTS['headers'] = {};
         this.DEFAULTS.headers['Content-Type'] = 'application/json';
         this.DEFAULTS.headers['apikey'] = this.auth;
+        this.DEFAULTS.headers['account_id'] = this.account_id;
         this.base_url = this.set_base_url(options);
 
         if (options != null){

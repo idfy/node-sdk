@@ -21,18 +21,28 @@ Util to request IDfy's Extraction and Verification Engine services.
 
 - Setup your API key in the dashboard - [plans.idfy.com](plans.idfy.com)
 
-```php
 
-let client = new Client("77484e44-db92-4a64-9584-0cc1798cd44e");
+##### Syntax :
+```javascript
+var client = new Client(apikey, account_id)
 ```
-Please ensure the ***API_KEY*** is included as a string.
+##### Example :
+```javascript
+let client = new Client("77484e44-db92-4a64-9584-0cc1798cd555", "e53992c5-6d6f-4d85-bc36-07f7442f91bc");
+```
+Please ensure the ***API_KEY*** and ***ACCOUNT_ID*** is included as a string.
 
 ### Usage
 
 ##### POST request
 - Making API call to make service request.(Refer various ***services*** (or) ***task_types*** here - https://api-docs.idfy.com/v2/#task-types).
-    
-```php
+
+###### Syntax :
+```javascript
+var response = client.post_request(task_type, task_id, data, group_id, callback)
+```    
+###### Example:
+```javascript
 var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1","key-2":"value-2"},"my-group-id",callback);
 or
 var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1","key-2":"value-2"},null,callback);
@@ -54,11 +64,13 @@ var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1"
 
 ##### **GET response**
 - Making API call, to receive response from the request made in the above step. ***request_id*** - generated in the previous step, will be an argument to get the response.
-```php
-Syntax : 
-var ans = client.get_response(request_id,group_id,task_id,callback);
 
-Example:
+###### Syntax :
+```javascript
+var ans = client.get_response(request_id,group_id,task_id,callback);
+```
+###### Example:
+```javascript
 var ans = client.get_response("e53992c5-6d6f-4d85-bc36-07f7442f91hh","my-task-id","my-group-id",callback);
 or
 var ans = client.get_response("e53992c5-6d6f-4d85-bc36-07f7442f91hh",null,null,callback);
