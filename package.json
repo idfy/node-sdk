@@ -1,0 +1,28 @@
+{
+  "name": "idfy",
+  "version": "1.0.0",
+  "description": "Node module for integration with IDfy-API.",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idfy/node-sdk.git"
+  },
+  "keywords": [
+    "IDfy",
+    "SDK",
+    "Web",
+    "SDK",
+    "NodeJS",
+    "Module",
+    "Integration"
+  ],
+  "author": "idfy-tech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idfy/node-sdk/issues"
+  },
+  "homepage": "https://github.com/idfy/node-sdk#readme"
+}
