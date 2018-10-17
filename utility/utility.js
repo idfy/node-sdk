@@ -132,7 +132,6 @@ class Utility extends Tasks{
            throw new BadRequestError(" Empty task_id provided ");
        }
        if (this.group_id != null){
-           console.log(this.group_id, typeof(this.group_id));
             if (typeof(this.group_id) != 'string'){
                 throw new BadRequestError("Invalid group_id format. Expected format is string, eg.: '<GROUP_ID>'");
             }

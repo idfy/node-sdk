@@ -1,19 +1,12 @@
 # IDFY NodeJS CLient
-NodeJS WEB SDK (async) - Node module for integration with IDfy-API.
+NodeJS WEB SDK - Node module for integration with IDfy-API.
 
 Util to request IDfy's Extraction and Verification Engine services.
 
 ## Installation
 
 ```bash
-# 1. Ensure you have composer installed. Here is a link : https://getcomposer.org/download/
-# 2. Add the following requirement to your composer.json file present in the project :
-# "require": {
-#         "idfy-eve/sdk-php": "dev-master"
-#     }
-# 3. Run "composer require idfy-eve/sdk-php" from your project root directory
-# 4. Add the following in your main php script:
-#     "require_once __DIR__ . '/vendor/autoload.php';"
+
 
 ```
 
@@ -28,9 +21,9 @@ var client = new Client(apikey, account_id)
 ```
 ##### Example :
 ```javascript
-let client = new Client("77484e44-db92-4a64-9584-0cc1798cd555", "e53992c5-6d6f-4d85-bc36-07f7442f91bc");
+var client = new Client("77484e44-db92-4a64-9584-0cc1798cd555", "e53992c5-6d6f-4d85-bc36-07f7442f91bc");
 ```
-Please ensure the ***API_KEY*** and ***ACCOUNT_ID*** is included as a string.
+Please ensure the ***API_KEY*** and ***ACCOUNT_ID*** are included as a string.
 
 ### Usage
 
@@ -39,16 +32,18 @@ Please ensure the ***API_KEY*** and ***ACCOUNT_ID*** is included as a string.
 
 ###### Syntax :
 ```javascript
-var response = client.post_request(task_type, task_id, data, group_id, callback)
-```    
-###### Example:
-```javascript
-var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1","key-2":"value-2"},"my-group-id",callback);
-or
-var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1","key-2":"value-2"},null,callback);
+var input_data = {
+    request_id: "<REQUEST_ID>",
+    task_id: "<TASK_ID>",
+    group_id: "<GROUP_ID>"
+    data: {
+        key1: "<VALUE>",
+        key2: "<VALUE>"
+    }
+}
+var response = client.post_request(input_data, callback)
 
-```
-- Mandatory arguments: ***task_type*** *(string)*, ***task_id*** *(string)*, ***data*** *(dictionary)*,  ***callback*** *(function)*
+- Mandatory arguments: In ***input_data*** *(dictionary)*, ***task_type*** *(string)*, ***task_id*** *(string)*, ***data*** *(dictionary)*,  ***callback*** *(function)*
 - Optional arguments: ***group_id*** *(string)*
 - Ensure the ***task_type*** is exactly mentioned as found in the [doc](https://api-docs.idfy.com/v2/#task-types).
 - Strictly stick to the request-schema respective to the task_types mentioned in the [doc](https://api-docs.idfy.com/v2/#task-types).
@@ -67,15 +62,16 @@ var response = client.post_request("pan_ocr","random-task-id",{"key-1":"value-1"
 
 ###### Syntax :
 ```javascript
-var ans = client.get_response(request_id,group_id,task_id,callback);
+var input_data = {
+    request_id: "<REQUEST_ID>",
+    task_id: "<TASK_ID>",
+    group_id: "<GROUP_ID>",
+
+}
+var ans = client.get_response(input_data,callback);
 ```
-###### Example:
-```javascript
-var ans = client.get_response("e53992c5-6d6f-4d85-bc36-07f7442f91hh","my-task-id","my-group-id",callback);
-or
-var ans = client.get_response("e53992c5-6d6f-4d85-bc36-07f7442f91hh",null,null,callback);
-```
-- Mandatory argument(s) - ***request_id*** *(string)*, ***callback*** *(function)*.
+
+- Mandatory argument(s) - ***input_data*** (***request_id*** *(string)*), ***callback*** *(function)*.
 - Response from the above the API-call:
 ```json
 [
