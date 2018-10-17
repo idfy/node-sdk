@@ -156,38 +156,4 @@ class Client extends Tasks{
    
     }
 }
-var c = new Client("77484e44-db92-4a64-9584-0cc1798cd44e","accounkk");
-
-function logStuff (userData) {
-    if ( typeof userData === "string")
-    {
-        console.log(userData);
-    }
-    else if ( typeof userData === "object")
-    {
-        for (var item in userData) {
-            console.log(item + ": " + userData[item]);
-        }
-
-    }
-
-}
-
-var i = {
-    task_id: "152",
-    task_type: "pan_ocr",
-    data: { doc_url: 'https://s3-ap-southeast-1.amazonaws.com/addressify-demo/eve+api+images/Indonesia+NID/ktp.jpg' },
-    group_id: "22"
-}
-
-var ii = {
-    request_id: "f0e954eb-d949-47d6-8acd-c12d71803f08",
-    task_id: "",
-    group_id: "",
-
-}
-console.log(c.post_request(i, logStuff));
-// console.log(c.get_response(ii,logStuff));
-// console.log(c.post_request("pan_ocr","124",{ 'doc_url': 'https://s3-ap-southeast-1.amazonaws.com/addressify-demo/eve+api+images/Indonesia+NID/ktp.jpg' },"2",logStuff))
-// console.log(c.DEFAULTS);
-// console.log(c.get_response("f0e954eb-d949-47d6-8acd-c12d71803f08",null,null,logStuff));
+module.exports = Client;
