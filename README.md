@@ -10,8 +10,7 @@ Util to request IDfy's Extraction and Verification Engine services.
 ```bash
 npm install idfy
 ```
-3. Run "composer require idfy-eve/sdk-php" from your project root directory
-4. Add the following in your main Node JS script:
+3. Add the following in your main Node JS script:
 ```javascript
 var client = require('idfy/client');
 ```
