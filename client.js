@@ -21,7 +21,7 @@ class Client extends Tasks{
         this.DEFAULTS.headers['account_id'] = this.account_id;
         this.base_url = this.set_base_url(options);
         
-        if (options != null){
+        if (options != null && options != ""){
             this.headers = this.validate_headers(options);
         }
         else{
@@ -46,8 +46,8 @@ class Client extends Tasks{
         :return: api_endpoint url
         */
         var api_endpoint = this.DEFAULTS['base_url_v2'];
-        if (options){
-            if (options.indexOf('url') >= 0){
+        if (options && isDict(options)){
+            if ('url' in options){
                 if (typeof(options['url'] != 'string')){
                     throw new BadRequestError("URL is not a string");
                 }
@@ -65,9 +65,12 @@ class Client extends Tasks{
         :param options: kwargs
         :return: headers
     */
-        if (options.indexOf('headers') > -1){
+        if (!isDict(options)){
+            throw new BadRequestError("Invalid format provided for headers. Expected is format is dictionary.");
+        }
+        if ('headers' in options){
             if (isDict(options.headers)){
-                if (options.headers.indexOf('apikey') < 0){
+                if ('apikey' in options.headers < 0){
                     throw new BadRequestError("No API key provided.");
                 }
                 for(key in options){
@@ -78,7 +81,7 @@ class Client extends Tasks{
                 throw new BadRequestError("Invalid headers provided. Correct format : {'content-Type : 'application/json'}");
             }
         }
-        return self.DEFAULTS['headers'];
+        return this.DEFAULTS['headers'];
     }
 
     post_request(input_data,callback){
@@ -155,5 +158,8 @@ class Client extends Tasks{
             });
    
     }
+}
+function isDict(v) {
+    return typeof v==='object' && v!==null && !(v instanceof Array) && !(v instanceof Date);
 }
 module.exports = Client;
