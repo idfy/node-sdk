@@ -1,4 +1,4 @@
-# IDFY NodeJS CLient
+# IDFY NodeJS Client
 NodeJS WEB SDK - Node module for integration with IDfy-API.
 
 Util to request IDfy's Extraction and Verification Engine services.
