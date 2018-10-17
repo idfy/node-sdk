@@ -5,9 +5,15 @@ Util to request IDfy's Extraction and Verification Engine services.
 
 ## Installation
 
+1. Ensure you have NPM installed
+2. Run the following from your project root directory :
 ```bash
-
-
+npm install idfy
+```
+3. Run "composer require idfy-eve/sdk-php" from your project root directory
+4. Add the following in your main Node JS script:
+```javascript
+var client = require('idfy/client');
 ```
 
 ## Client-Initiation
@@ -17,11 +23,7 @@ Util to request IDfy's Extraction and Verification Engine services.
 
 ##### Syntax :
 ```javascript
-var client = new Client(apikey, account_id)
-```
-##### Example :
-```javascript
-var client = new Client("77484e44-db92-4a64-9584-0cc1798cd555", "e53992c5-6d6f-4d85-bc36-07f7442f91bc");
+var example = new client("<API_KEY>","<ACCOUNT_ID>");
 ```
 Please ensure the ***API_KEY*** and ***ACCOUNT_ID*** are included as a string.
 
